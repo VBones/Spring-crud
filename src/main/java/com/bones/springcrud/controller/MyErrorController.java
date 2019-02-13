@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyErrorController implements ErrorController {
 
-	private static Logger logger = LoggerFactory.getLogger(MyErrorController.class);
-	
 	@RequestMapping("/error")
 	public String handleError(HttpServletRequest request) {
 		
@@ -24,11 +22,9 @@ public class MyErrorController implements ErrorController {
 	        Integer statusCode = Integer.valueOf(status.toString());
 	     
 	        if(statusCode == HttpStatus.NOT_FOUND.value()) {
-	        	logger.debug("error 404 happened");
 	            return "/errors/error-404";
 	        }
 	        else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
-	        	logger.debug("error 500 happened");
 	            return "/errors/error-500";
 	        }
 	    }

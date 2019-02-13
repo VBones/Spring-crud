@@ -65,13 +65,13 @@ public class EmployeeController {
 	public String showFormForUpdateEmployee(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
-		// get the customer from our service
+		// get the customer from my service
 		Employee theEmployee = employeeService.getEmployee(theId);
 		
 		// set customer as a model attribute to pre-populate the form
 		theModel.addAttribute("employee", theEmployee);
 		
-		// send over to our form
+		// send over to my form
 		return "employee-form";
 	}
 	
